@@ -51,6 +51,7 @@ module.exports.updateLecture=(req,res)=>{
     lecture.save((err,lectureUpdated)=>{
         if(err)
         {
+          console.log(err);
             return res.status(400).json({
                 error:err,
                 msg:"Lecture Updated Error "

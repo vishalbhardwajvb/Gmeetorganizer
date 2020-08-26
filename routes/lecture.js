@@ -1,6 +1,6 @@
 const express=require("express");
 const Router=express.Router();
-const {getAllLecture,createLecture,deleteLecture,updateLecture,getLectureByID} =require("../controllers/lecture");
+const {getAllLecture,createLecture,deleteLecture,updateLecture,getLectureByID,getLecture} =require("../controllers/lecture");
 const {getUserById}=require("../controllers/user")
 
 
@@ -10,6 +10,7 @@ Router.param("userId",getUserById)
 Router.post('/lecture/:userId/create',createLecture);
 Router.put('/lecture/:userId/:lectureId',updateLecture);
 Router.delete('/lecture/:userId/:lectureId',deleteLecture);
+Router.get('/lecture/:userId/:lectureId',getLecture);
 Router.get('/getAllLecture/:userId',getAllLecture)
 
 
