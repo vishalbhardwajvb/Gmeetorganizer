@@ -35,6 +35,7 @@ app.use(cors());
 
 app.use('/',require("./routes/auth"));
 app.use('/',require('./routes/lecture'))
+app.use('/',require("./routes/home"))
 
 
 

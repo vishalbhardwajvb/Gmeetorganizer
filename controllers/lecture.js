@@ -68,7 +68,7 @@ module.exports.updateLecture=(req,res)=>{
 
 module.exports.getAllLecture=(req,res)=>{
 
-    Lecture.find().exec((err,lectures)=>{
+    Lecture.find({userId:req.params.userId}).exec((err,lectures)=>{
 
             if(err)
             {
