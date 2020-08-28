@@ -19,11 +19,19 @@ const userSchema=new mongoose.Schema({
         type:Number,
         default:0
     },
+
+    coursecode:{
+      type:String,
+      uppercase:true,
+      required:true
+
+    },
+
     category:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Category"
     },
-    
+
     lectures:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Lecture"
@@ -32,4 +40,3 @@ const userSchema=new mongoose.Schema({
 },{timestamps:true})
 
 module.exports=mongoose.model("User",userSchema);
-

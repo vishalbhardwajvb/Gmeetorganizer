@@ -7,6 +7,11 @@ const db = 'mongodb://localhost/organizer';
 const mongoose=require("mongoose")
 const cors=require("cors");
 
+require('dotenv').config()
+
+
+// const db_atlas="mongodb+srv://<username>:<password>@cluster0.tldsn.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const db_atlas=process.env.DB_CONNECTION
 mongoose
   .connect(db, {
     useNewUrlParser: true,
@@ -36,6 +41,7 @@ app.use(cors());
 app.use('/',require("./routes/auth"));
 app.use('/',require('./routes/lecture'))
 app.use('/',require("./routes/home"))
+app.use('/',require('./routes/category'))
 
 
 
