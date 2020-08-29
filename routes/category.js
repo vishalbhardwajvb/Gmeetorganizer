@@ -8,7 +8,7 @@ const {getCategoryById,
         updateCategory,
         deleteCategory
         }=require("../controllers/category");
-    
+
 const {getUserById}=require("../controllers/user");
 
 
@@ -18,10 +18,10 @@ Router.param("userId",getUserById)
 
 
 
-Router.post("/category/:userId/create",createCategory);
+Router.post("/category/create",createCategory);
 Router.put("/category/:userId/:categoryId",updateCategory);
 Router.delete("/category/:userId/:categoryId",deleteCategory);
-Router.get("/category/:categoryId",getCategory);
+Router.get("/category/:userId/:categoryId",getCategory);
 Router.get("/getAllCategories",getAllCategories);
 
 

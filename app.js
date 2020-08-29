@@ -23,6 +23,10 @@ mongoose
   });
 
 var app = express();
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,8 +44,9 @@ app.use(cors());
 
 app.use('/',require("./routes/auth"));
 app.use('/',require('./routes/lecture'))
-app.use('/',require("./routes/home"))
-app.use('/',require('./routes/category'))
+app.use('/',require("./routes/home"));
+app.use('/',require('./routes/category'));
+app.use('/',require("./routes/user"));
 
 
 

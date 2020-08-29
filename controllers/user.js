@@ -17,3 +17,33 @@ module.exports.getUserById=(req,res,next,userId)=>{
         next();
     });
 }
+
+module.exports.getAllUser=(req,res)=>{
+    User.find({role:0}).exec((err,users)=>{
+        if(err)
+        {
+            return res.status(400).json({
+                error:err,
+                msg:"User Not Found ERROR"
+            })
+        }
+
+        return res.status(200).json(users);
+       
+    })
+}
+
+
+module.exports.deleteUser=(req,res)=>{
+    const user=req.user;
+    user.remove((err, user) => {
+        if (err) {
+          return res.status(400).json({
+            error: "Failed to delete this user"
+          });
+        }
+        res.json({
+          message: "User Successfull deleted"
+        });
+      });
+}
