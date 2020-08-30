@@ -13,9 +13,19 @@ const lectureSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    time:{
+      type:String,
+      default:"1-2"
+    },
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
+    }
+    ,
+    category:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Category'
+
     }
 
 },{timestamps:true});

@@ -19,22 +19,14 @@ const userSchema=new mongoose.Schema({
         type:Number,
         default:0
     },
-
-    coursecode:{
-      type:String,
-      uppercase:true,
-      required:true
-
-    },
-
     category:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Category"
+        ref:"Category",
     },
 
     lectures:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Lecture"
+        ref:"Lecture",
     }
 
 },{timestamps:true})

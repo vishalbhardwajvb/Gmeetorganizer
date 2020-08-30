@@ -9,11 +9,13 @@ const cors=require("cors");
 
 require('dotenv').config()
 
-
+var db_atlas;
 // const db_atlas="mongodb+srv://<username>:<password>@cluster0.tldsn.mongodb.net/<dbname>?retryWrites=true&w=majority"
-const db_atlas=process.env.DB_CONNECTION
+db_atlas="mongodb+srv://vishal:bhardwaj@cluster0.tldsn.mongodb.net/meetorganizer?retryWrites=true&w=majority"
+// db_atlas=db;
+
 mongoose
-  .connect(db, {
+  .connect(db_atlas, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

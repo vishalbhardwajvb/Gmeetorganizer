@@ -95,7 +95,9 @@ module.exports.getLecture=(req,res)=>{
 
 
 module.exports.getLectureByID=(req,res,next,lectureId)=>{
-    Lecture.findById(lectureId).exec((err,lecture)=>{
+    Lecture.findById(lectureId)
+    .populate('category')
+    .exec((err,lecture)=>{
         if(err)
         {
             return res.status(400).json({
@@ -105,6 +107,8 @@ module.exports.getLectureByID=(req,res,next,lectureId)=>{
         else
         {
             req.lecture=lecture;
+            console.log(req.lecture);
+
             next();
         }
     })

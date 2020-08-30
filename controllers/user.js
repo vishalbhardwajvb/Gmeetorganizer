@@ -14,8 +14,17 @@ module.exports.getUserById=(req,res,next,userId)=>{
             })
         }
         req.user=user;
+        console.log(user);
         next();
     });
+}
+
+module.exports.getUser=(req,res)=>{
+
+      return res.json({
+          data:req.user,
+          mesg:"Get User"
+      });
 }
 
 module.exports.getAllUser=(req,res)=>{
@@ -29,7 +38,7 @@ module.exports.getAllUser=(req,res)=>{
         }
 
         return res.status(200).json(users);
-       
+
     })
 }
 
