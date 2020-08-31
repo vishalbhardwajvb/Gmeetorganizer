@@ -25,12 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({
-  'allowedHeaders': ['Content-Type'],
-  'credentials': true,
-  'origin': ['http://localhost:8000', 'http://localhost:3000'], // here goes Frontend IP
-}))
-
+// app.use(cors({
+//   'allowedHeaders': ['Content-Type'],
+//   'credentials': true,
+//   'origin': ['http://localhost:8000', 'http://localhost:3000'], // here goes Frontend IP
+// }))
+app.use(cors());
 
 
 
