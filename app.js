@@ -14,7 +14,11 @@ require('dotenv').config()
 //  db="mongodb+srv://vishal:bhardwaj@cluster0.tldsn.mongodb.net/meetorganizer?retryWrites=true&w=majority"
 
 
+<<<<<<< HEAD
 // db = 'mongodb+srv://abhiman:herohere@cluster0-8s4cf.mongodb.net/gmeetorganizer?retryWrites=true&w=majority';
+=======
+db = 'mongodb+srv://abhiman:herohere@cluster0-8s4cf.mongodb.net/gmeetorganizer?retryWrites=true&w=majority';
+>>>>>>> a00b19905eef234b9756c0702cfc5e8d4e220464
 
 
 // view engine setup
@@ -27,8 +31,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+<<<<<<< HEAD
 app.use(cors())
-
+=======
+// app.use(cors({
+//   'allowedHeaders': ['Content-Type'],
+//   'credentials': true,
+//   'origin': ['http://localhost:8000', 'http://localhost:3000'], // here goes Frontend IP
+// }))
+app.use(cors());
+>>>>>>> a00b19905eef234b9756c0702cfc5e8d4e220464
 
 
 
