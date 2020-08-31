@@ -3,43 +3,33 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const db = 'mongodb://localhost/organizer';
+var db = 'mongodb://localhost/organizer';
 const mongoose=require("mongoose")
 const cors=require("cors");
 
 require('dotenv').config()
 
-var db_atlas;
 // const db_atlas="mongodb+srv://<username>:<password>@cluster0.tldsn.mongodb.net/<dbname>?retryWrites=true&w=majority"
-db_atlas="mongodb+srv://vishal:bhardwaj@cluster0.tldsn.mongodb.net/meetorganizer?retryWrites=true&w=majority"
-// db_atlas=db;
+//  db="mongodb+srv://vishal:bhardwaj@cluster0.tldsn.mongodb.net/meetorganizer?retryWrites=true&w=majority"
 
-mongoose
-  .connect(db_atlas, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  })
-  .then(() => {
-    console.log("DB CONNECTED");
-  });
 
-var app = express();
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+db = 'mongodb+srv://abhiman:herohere@cluster0-8s4cf.mongodb.net/gmeetorganizer?retryWrites=true&w=majority';
+
 
 // view engine setup
+var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+app.use(cors({
+  'allowedHeaders': ['Content-Type'],
+  'credentials': true,
+  'origin': ['http://localhost:8000', 'http://localhost:3000'], // here goes Frontend IP
+}))
 
 
 
@@ -57,6 +47,19 @@ app.use('/',require("./routes/user"));
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  })
+  .then(() => {
+    console.log("DB CONNECTED");
+  });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
