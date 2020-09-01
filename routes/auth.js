@@ -7,7 +7,7 @@ const { signout, signup, signin } = require("../controllers/auth");
 
 
 router.post(
-  "/signup",(req,res)=>console.log(req.body,"hellooo"),
+  "/signup",
   [
     check("name", "name lenght should  smaller than  20 and greater than 4").isLength({ min: 3 ,max:20}),
     check("email", "email is required").isEmail(),
