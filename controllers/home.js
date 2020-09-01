@@ -5,7 +5,9 @@ const Lecture=require("../models/lecture")
 
 exports.getHomeData=(req,res)=>{
 
-    User.find({role:0}).exec((err,users)=>{
+    User.find({role:0})
+    .populate('category')
+    .exec((err,users)=>{
         if(err)
         {
             return res.status(400).json({

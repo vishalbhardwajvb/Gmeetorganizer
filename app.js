@@ -9,12 +9,6 @@ const mongoose=require("mongoose")
 const cors=require("cors");
 
 require('dotenv').config()
-
-// const db_atlas="mongodb+srv://<username>:<password>@cluster0.tldsn.mongodb.net/<dbname>?retryWrites=true&w=majority"
-//  db="mongodb+srv://vishal:bhardwaj@cluster0.tldsn.mongodb.net/meetorganizer?retryWrites=true&w=majority"
-
-
-// db = 'mongodb+srv://abhiman:herohere@cluster0-8s4cf.mongodb.net/gmeetorganizer?retryWrites=true&w=majority';
 db = 'mongodb+srv://abhiman:herohere@cluster0-8s4cf.mongodb.net/gmeetorganizer?retryWrites=true&w=majority';
 
 
@@ -29,11 +23,7 @@ app.use(bodyParser.json())
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
-// app.use(cors({
-//   'allowedHeaders': ['Content-Type'],
-//   'credentials': true,
-//   'origin': ['http://localhost:8000', 'http://localhost:3000'], // here goes Frontend IP
-// }))
+
 
 
 
