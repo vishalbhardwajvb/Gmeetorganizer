@@ -20,7 +20,6 @@ module.exports.getCategoryById=(req,res,next,Id)=>{
 
 
 module.exports.createCategory=(req,res)=>{
-  console.log(req.body);
     const category=new Category(req.body);
     category.save((err,category)=>{
         if(err)
