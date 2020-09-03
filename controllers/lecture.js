@@ -46,6 +46,9 @@ module.exports.updateLecture=(req,res)=>{
     lecture.day=req.body.day;
     lecture.description=req.body.description;
     lecture.url=req.body.url;
+    lecture.time=req.body.time;
+
+    console.log(lecture);
 
 
     lecture.save((err,lectureUpdated)=>{
@@ -107,8 +110,6 @@ module.exports.getLectureByID=(req,res,next,lectureId)=>{
         else
         {
             req.lecture=lecture;
-            console.log(req.lecture);
-
             next();
         }
     })

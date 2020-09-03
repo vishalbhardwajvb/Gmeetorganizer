@@ -14,7 +14,6 @@ module.exports.getUserById=(req,res,next,userId)=>{
             })
         }
         req.user=user;
-        console.log(user);
         next();
     });
 }

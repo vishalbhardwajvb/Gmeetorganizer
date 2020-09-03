@@ -7,7 +7,9 @@ const lectureSchema=new mongoose.Schema({
     },
     description:{
         type:String,
-        required:true
+        required:true,
+        default:"Will Update Soon... "
+        
     },
     url:{
         type:String,
@@ -15,7 +17,7 @@ const lectureSchema=new mongoose.Schema({
     },
     time:{
       type:String,
-      default:"1-2"
+      default:"Will Update Soon... "
     },
     userId:{
         type:mongoose.Schema.Types.ObjectId,
