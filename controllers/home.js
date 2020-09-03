@@ -7,6 +7,7 @@ exports.getHomeData=(req,res)=>{
 
     User.find({role:0})
     .populate('category')
+    .sort({category:1})
     .exec((err,users)=>{
         if(err)
         {

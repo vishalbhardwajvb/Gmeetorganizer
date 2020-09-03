@@ -47,7 +47,7 @@ exports.getCategory = (req, res) => {
 
 exports.getAllCategories=(req,res)=>{
 
-    Category.find().exec((err, categories) => {
+    Category.find().sort({categories:1}).exec((err, categories) => {
         if (err) {
           return res.status(400).json({
             error: "NO categories found"
@@ -63,8 +63,8 @@ exports.getAllCategories=(req,res)=>{
 exports.updateCategory=(req,res)=>{
 
     const cateGory=req.category;
-    console.log(req.body.category);
     cateGory.category=req.body.category
+    cateGory.url=req.body.url;
 
     cateGory.save((err,category)=>{
         if(err)
